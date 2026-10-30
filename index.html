@@ -1537,6 +1537,127 @@
     <video id="hb-video" src="video.mp4" playsinline controls preload="metadata"></video>
   </section>
 
+  <!-- ============ TAHAP 7c: TAWARAN DOWNLOAD VIDEO ============ -->
+  <section class="stage mid" id="stage-dl" hidden>
+    <style>
+      #stage-dl{ text-align:center; }
+      #stage-dl .dl-emoji{ font-size:52px; }
+      #stage-dl h2{ font-family:var(--display); font-style:italic; font-weight:900;
+        font-size:clamp(1.8rem,7vw,2.8rem); color:var(--red-deep); margin:8px 0 6px; }
+      #stage-dl p{ color:var(--ink-soft); margin-bottom:22px; }
+      #stage-dl .dl-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+      #stage-dl .dl-btns button{ border:0; cursor:pointer; border-radius:50px;
+        padding:14px 28px; font:700 16px var(--body); }
+      #stage-dl .yes{ color:#fff; background:linear-gradient(135deg,var(--red),var(--rose));
+        box-shadow:0 10px 24px #d81e3f44; }
+      #stage-dl .no{ color:var(--red-deep); background:#fff; border:1.5px solid #f0c9d2; }
+    </style>
+    <div class="dl-emoji">🎬💾</div>
+    <h2>Simpan videonya?</h2>
+    <p>Mau download videonya buat kenang-kenangan?</p>
+    <div class="dl-btns">
+      <button class="yes" id="dl-yes">Iya, download 💗</button>
+      <button class="no" id="dl-no">Nggak, lanjut aja</button>
+    </div>
+    <a id="dl-link" href="video.mp4" download="video-ultah.mp4" hidden>dl</a>
+  </section>
+
+  <!-- ============ TAHAP 7d: RUNDOWN ============ -->
+  <section class="stage wide" id="stage-rundown" hidden>
+    <style>
+      #stage-rundown{ max-width:560px; }
+      #stage-rundown .rd-head{ text-align:center; margin-bottom:26px; }
+      #stage-rundown .rd-eyebrow{ font-size:11px;font-weight:700;letter-spacing:.4em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px; }
+      #stage-rundown .rd-title{ font-family:var(--display);font-style:italic;font-weight:900;
+        font-size:clamp(2rem,8vw,3rem);line-height:.95;letter-spacing:-.02em;
+        background:linear-gradient(104deg,#8E0B26,#C9132F 30%,#E85D1A 55%,#F2A91F 82%);
+        -webkit-background-clip:text;background-clip:text;color:transparent; }
+      #stage-rundown .rd-when{ margin-top:10px;font-family:var(--script);font-size:1.4rem;color:var(--red); }
+      #stage-rundown .rd-sub{ margin-top:4px;font-size:12.5px;color:var(--ink-soft); }
+      #stage-rundown .rd-line{ position:relative;padding-left:58px;text-align:left; }
+      #stage-rundown .rd-line::before{ content:"";position:absolute;left:24px;top:8px;bottom:24px;
+        width:3px;background:linear-gradient(#F2A91F,var(--rose),var(--red));border-radius:3px;opacity:.5; }
+      #stage-rundown .rd-item{ position:relative;margin-bottom:18px; }
+      #stage-rundown .rd-dot{ position:absolute;left:-48px;top:4px;width:38px;height:38px;border-radius:50%;
+        display:grid;place-items:center;font-size:18px;background:#fff;border:2px solid #ffd7c9;
+        box-shadow:0 8px 18px #9e0e2b1f; }
+      #stage-rundown .rd-card{ background:#fff;border:1px solid #f4dfd6;border-radius:16px;
+        padding:13px 16px;box-shadow:0 12px 26px #6738460f; }
+      #stage-rundown .rd-time{ font-family:var(--display);font-weight:800;font-style:italic;
+        font-size:1.1rem;color:var(--red-deep); }
+      #stage-rundown .rd-name{ font-size:1rem;font-weight:600;color:var(--ink); }
+      #stage-rundown .rd-note{ font-size:12px;color:var(--ink-soft);margin-top:2px; }
+      #stage-rundown .rd-secret .rd-dot{ border-color:#e9c58f;background:linear-gradient(135deg,#fff3d6,#ffe1c2); }
+      #stage-rundown .rd-secret .rd-card{ background:linear-gradient(135deg,#2a1420,#4a1326);
+        border-color:#6b2338;cursor:pointer;text-align:center; }
+      #stage-rundown .rd-secret .rd-time{ color:#ffd27a; }
+      #stage-rundown .rd-blur{ font-family:var(--display);font-style:italic;font-weight:900;
+        font-size:1.3rem;color:#ffdca8;filter:blur(7px);letter-spacing:.06em;transition:filter .5s; }
+      #stage-rundown .rd-secret.open .rd-blur{ filter:blur(0); }
+      #stage-rundown .rd-lock{ font-size:24px;margin:4px 0; }
+      #stage-rundown .rd-hint{ font-size:11.5px;color:#ffc0ce; }
+      #stage-rundown .rd-reveal{ display:none;font-family:var(--script);font-size:1.25rem;color:#ffd27a;margin-top:5px; }
+      #stage-rundown .rd-secret.open .rd-reveal{ display:block; }
+      #stage-rundown .rd-next-wrap{ text-align:center;margin-top:26px; }
+      #stage-rundown .rd-next{ border:0;cursor:pointer;border-radius:50px;padding:14px 38px;
+        font:700 16px var(--body);color:#fff;background:linear-gradient(135deg,var(--red),var(--rose));
+        box-shadow:0 10px 24px #d81e3f44; }
+    </style>
+    <div class="rd-head">
+      <p class="rd-eyebrow">Rundown Hari Spesial</p>
+      <h2 class="rd-title">Hari Kamu ✨</h2>
+      <p class="rd-when">31 Oktober 2026</p>
+      <p class="rd-sub">khusus buat Princess 👑 — ikutin aja ya 🤭</p>
+    </div>
+    <div class="rd-line">
+      <div class="rd-item">
+        <div class="rd-dot">👑</div>
+        <div class="rd-card"><span class="rd-time">11.00</span>
+          <div class="rd-name">Jemput Princess</div>
+          <div class="rd-note">siap-siap yang cantik, aku otw 🚗💨</div></div>
+      </div>
+      <div class="rd-item">
+        <div class="rd-dot">🏎️</div>
+        <div class="rd-card"><span class="rd-time">12.00</span>
+          <div class="rd-name">Jalan ke Drift.In</div>
+          <div class="rd-note">gas tipis-tipis, pegangan yang kenceng 😎</div></div>
+      </div>
+      <div class="rd-item">
+        <div class="rd-dot">🍽️</div>
+        <div class="rd-card"><span class="rd-time">14.00</span>
+          <div class="rd-name">Makan</div>
+          <div class="rd-note">makan yang banyak, hari ini kamu yang spesial 🥰</div></div>
+      </div>
+      <div class="rd-item rd-secret" onclick="this.classList.toggle('open')">
+        <div class="rd-dot">🔒</div>
+        <div class="rd-card"><span class="rd-time">15.00 — dst</span>
+          <div class="rd-lock">🤫</div>
+          <div class="rd-blur">RAHASIAAA!!!!</div>
+          <div class="rd-hint">psst... ketuk kalau berani 👀</div>
+          <div class="rd-reveal">Nggak semudah itu, nanti kamu juga tau sendiri 😚</div></div>
+      </div>
+    </div>
+    <div class="rd-next-wrap"><button class="rd-next" id="rd-next">Next ›</button></div>
+  </section>
+
+  <!-- ============ TAHAP 7e: PENUTUP ============ -->
+  <section class="stage wide mid hbd-wrap" id="stage-final" hidden>
+    <style>
+      #stage-final{ text-align:center; }
+      #stage-final .final-big{ font-family:var(--display);font-style:italic;font-weight:900;
+        font-size:clamp(2.2rem,11vw,5rem);line-height:.98;letter-spacing:-.02em;white-space:pre-line;
+        background:linear-gradient(104deg,#8E0B26,#C9132F 25%,#E85D1A 55%,#F2A91F 82%);
+        -webkit-background-clip:text;background-clip:text;color:transparent;
+        filter:drop-shadow(0 8px 18px rgba(158,14,43,.22)); }
+      #stage-final .final-mini{ font-family:var(--script);font-size:1.6rem;color:var(--rose);margin-top:16px; }
+    </style>
+    <h2 class="final-big">SAMPAI BERTEMU
+JAM 11
+SAYANG ♡</h2>
+    <p class="final-mini">siap-siap ya, princess 👑</p>
+  </section>
+
   <!-- ============ TAHAP 7: KENANGAN (muter sendiri) ============ -->
   <section class="stage" id="stage-book" hidden>
     <div class="slides" id="slides"></div>
@@ -2446,7 +2567,11 @@
     }
     if (keId === "stage-video") {
       const v = $("hb-video");
-      if (v) { try { v.currentTime = 0; v.play().catch(() => {}); } catch (e) {} }
+      if (v) {
+        // pas video kelar → tawarin download
+        v.onended = () => { if (!$("stage-video").hidden) pindah("stage-video", "stage-dl"); };
+        try { v.currentTime = 0; v.play().catch(() => {}); } catch (e) {}
+      }
     }
     if (keId === "stage-book") mulaiKenangan();
     if (dariId === "stage-book") stopKenangan();
@@ -2736,6 +2861,14 @@
       if (!$("stage-count").hidden) { pindah("stage-count", "stage-hbd"); pesta(); }
     }, 2000);
   }
+
+  // tawaran download video → rundown → penutup
+  $("dl-yes").addEventListener("click", () => {
+    try { $("dl-link").click(); } catch (e) {}
+    pindah("stage-dl", "stage-rundown");
+  });
+  $("dl-no").addEventListener("click", () => pindah("stage-dl", "stage-rundown"));
+  $("rd-next").addEventListener("click", () => pindah("stage-rundown", "stage-final"));
 
   $("foot").textContent = CONFIG.footer;
 
